@@ -1,0 +1,291 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.06 0.028 242;
+    --foreground: 0.92 0.018 220;
+    --card: 0.09 0.032 242;
+    --card-foreground: 0.92 0.018 220;
+    --popover: 0.1 0.032 242;
+    --popover-foreground: 0.92 0.018 220;
+    --primary: 0.78 0.19 212;
+    --primary-foreground: 0.06 0.028 242;
+    --secondary: 0.62 0.26 292;
+    --secondary-foreground: 0.97 0.008 0;
+    --muted: 0.14 0.03 242;
+    --muted-foreground: 0.58 0.055 232;
+    --accent: 0.88 0.17 186;
+    --accent-foreground: 0.06 0.028 242;
+    --destructive: 0.66 0.22 26;
+    --destructive-foreground: 0.97 0.008 0;
+    --border: 0.18 0.05 242;
+    --input: 0.14 0.03 242;
+    --ring: 0.78 0.19 212;
+    --radius: 0.375rem;
+    --chart-1: 0.78 0.19 212;
+    --chart-2: 0.88 0.17 186;
+    --chart-3: 0.62 0.26 292;
+    --chart-4: 0.66 0.22 26;
+    --chart-5: 0.72 0.2 148;
+    --sidebar: 0.07 0.028 242;
+    --sidebar-foreground: 0.92 0.018 220;
+    --sidebar-primary: 0.78 0.19 212;
+    --sidebar-primary-foreground: 0.06 0.028 242;
+    --sidebar-accent: 0.14 0.03 242;
+    --sidebar-accent-foreground: 0.92 0.018 220;
+    --sidebar-border: 0.18 0.05 242;
+    --sidebar-ring: 0.78 0.19 212;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border box-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Satoshi", sans-serif;
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width, 100%);
+  }
+}
+
+@keyframes count-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.animate-slide-left {
+  animation: slide-in-left 0.5s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-in-up 0.5s ease-out forwards;
+}
+
+.animate-count-pop {
+  animation: count-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Panel glow borders */
+.panel-blue {
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.08), inset 0 0 20px
+    rgba(0, 212, 255, 0.03);
+}
+
+.panel-purple {
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.08), inset 0 0 20px
+    rgba(168, 85, 247, 0.03);
+}
+
+.panel-cyan {
+  border: 1px solid rgba(0, 255, 204, 0.22);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.08), inset 0 0 20px
+    rgba(0, 255, 204, 0.03);
+}
+
+.neon-text-blue {
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+}
+
+.neon-text-cyan {
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+}
+
+.neon-text-purple {
+  color: #a855f7;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+}
+
+.neon-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.12),
+    rgba(0, 255, 204, 0.08)
+  );
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #00d4ff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+.neon-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.22),
+    rgba(0, 255, 204, 0.15)
+  );
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.4);
+  border-color: rgba(0, 212, 255, 0.7);
+}
+
+.neon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.data-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 212, 255, 0.55);
+}
+
+.data-value {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 20, 40, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.5);
+}
